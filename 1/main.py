@@ -1,9 +1,9 @@
-def day_one():
+def day_one() -> None:
     elfs = []
     def setup():
         nonlocal elfs
         elfs = []
-        with open("./input.txt") as f:
+        with open("./1/input.txt") as f:
             lines = f.readlines()
             temp = []
             for line in lines:
