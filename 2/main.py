@@ -44,7 +44,7 @@ def day_two():
 
             score += shape_point[player] + victory_score 
 
-        print(f"\tFirst: {score}")
+        print(f"\tFirst solution: {score}")
 
     def solution_2():
         nonlocal history
@@ -83,7 +83,7 @@ def day_two():
             opponent, player = tuple(game.split(" "))
             score += shape_response(player, opponent)
 
-        print(f"\tSecond: {score}")
+        print(f"\tSecond solution: {score}")
 
         
 
