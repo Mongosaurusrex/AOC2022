@@ -1,6 +1,7 @@
 def day_four():
     section_pairs = []
     print("Day four")
+
     def setup():
         nonlocal section_pairs
         with open("./4/input.txt") as f:
@@ -10,7 +11,6 @@ def day_four():
                 first, second = line.split(",")
                 section_pairs.append((first, second))
 
-    
     def part_one():
         total_overlaps = 0
         for l, r in section_pairs:
@@ -29,7 +29,7 @@ def day_four():
         for l, r in section_pairs:
             l1, l2 = l.split("-")
             r1, r2 = r.split("-")
-            
+
             l_set = set([*range(int(l1), int(l2) + 1)])
             r_set = set([*range(int(r1), int(r2) + 1)])
 
@@ -41,6 +41,6 @@ def day_four():
     part_one()
     part_two()
 
+
 if __name__ == "__main__":
     day_four()
-

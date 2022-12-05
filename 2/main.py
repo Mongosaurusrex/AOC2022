@@ -1,28 +1,30 @@
 import pdb
 
+
 def day_two():
     history = []
     print("Day two")
+
     def setup():
         nonlocal history
         with open("./2/input.txt") as f:
             lines = f.readlines()
             for line in lines:
                 history.append(line.replace("\n", ""))
-    
+
     def solution_1():
         nonlocal history
-        
+
         shape_point = {
-            "X": 1, # Rock
-            "Y": 2, # Paper
-            "Z": 3, # Scissors
+            "X": 1,  # Rock
+            "Y": 2,  # Paper
+            "Z": 3,  # Scissors
         }
 
         victory_shape = {
-            "X": "C", # Scissors
-            "Y": "A", # Rock
-            "Z": "B", # Paper
+            "X": "C",  # Scissors
+            "Y": "A",  # Rock
+            "Z": "B",  # Paper
         }
 
         draw_shape = {
@@ -34,7 +36,7 @@ def day_two():
         score = 0
         for game in history:
             opponent, player = tuple(game.split(" "))
-            
+
             victory_score = 0
 
             if victory_shape[player] == opponent:
@@ -42,7 +44,7 @@ def day_two():
             if draw_shape[player] == opponent:
                 victory_score = 3
 
-            score += shape_point[player] + victory_score 
+            score += shape_point[player] + victory_score
 
         print(f"\tFirst solution: {score}")
 
@@ -69,9 +71,9 @@ def day_two():
 
         def shape_response(shape, opponent):
             resolver = {
-                "X": (0, loose_shape), # Must loose 
-                "Y": (3, draw_shape), # Must draw 
-                "Z": (6, victory_shape), # Must win 
+                "X": (0, loose_shape),  # Must loose
+                "Y": (3, draw_shape),  # Must draw
+                "Z": (6, victory_shape),  # Must win
             }
 
             point, shape_resolver = resolver[shape]
@@ -85,10 +87,10 @@ def day_two():
 
         print(f"\tSecond solution: {score}")
 
-        
-
     setup()
     solution_1()
     solution_2()
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     day_two()

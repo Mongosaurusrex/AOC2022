@@ -1,5 +1,6 @@
 def day_one() -> None:
     elfs = []
+
     def setup():
         nonlocal elfs
         elfs = []
@@ -12,7 +13,7 @@ def day_one() -> None:
                     temp = []
                     continue
 
-                temp.append(int(line.replace("\n","")))
+                temp.append(int(line.replace("\n", "")))
 
     def solution():
         calories = []
@@ -27,11 +28,14 @@ def day_one() -> None:
         top_calories = calories[::-1]
 
         print(f"\tFirst solution: {top_calories[0]}")
-        print(f"\tSecond solution: {top_calories[0] + top_calories[1] + top_calories[2]}")
+        print(
+            f"\tSecond solution: {top_calories[0] + top_calories[1] + top_calories[2]}"
+        )
 
     setup()
     print("Day one")
     solution()
+
 
 if __name__ == "__main__":
     day_one()
