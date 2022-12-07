@@ -2,6 +2,7 @@ import re
 from itertools import zip_longest
 
 def day_five():
+    print("Day five")
     with open("./5/input.txt", "r") as f:
         crates, moves = f.read().split("\n\n")
 
@@ -25,8 +26,8 @@ def day_five():
         crate_mover_9001[to] += crate_mover_9001[from_][-amt:]
         del crate_mover_9001[from_][-amt:]
 
-    print("".join(crate[-1] for crate in crate_mover_9000))
-    print("".join(crate[-1] for crate in crate_mover_9001))
+    print("\tFirst solution: " + "".join(crate[-1] for crate in crate_mover_9000))
+    print("\tSecond solution: " + "".join(crate[-1] for crate in crate_mover_9001))
 
 if __name__ == "__main__":
     day_five()
