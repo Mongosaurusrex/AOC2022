@@ -26,17 +26,24 @@ def day_seven():
                 else:
                     size, name = line.split()
                     working_directory [name] = int(size)
-
-    def size_calculation():
-        nonlocal file_system
-        test = file_system["/"]
-        import pdb
-        pdb.set_trace()
-        return 0
-        # sum(file_system.values())
+    sizes = []
+    def du(d):
+        if type(d) == int: return d
+        size = sum([du(d[k]) for k in d])
+        sizes.append(size)
+        return size
 
     setup()
-    size_calculation()
+
+    req = 30000000 - (70000000 - du(file_system))
+    r1 = 0
+    r2 = 70000000
+    for size in sizes:
+        if size < 100000: r1 += size
+        if size > req: r2 = min(r2, size)
+
+    print(f"\tSolution one: {r1}")
+    print(f"\tSolution two: {r2}")
 
 
 if __name__ == "__main__":
